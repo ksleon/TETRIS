@@ -9,7 +9,7 @@
 
 #TipoYaBlake
 
-#Kim_t_whatever
+#Kim_t_whatever.
 
 #Leon
 
