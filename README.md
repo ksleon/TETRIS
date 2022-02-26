@@ -1,4 +1,13 @@
 # TETRIS
  Our tetris project
 #we_are_fools
-Сабина _Н 
+ 
+=======
+
+Над проектом работают:
+=======
+
+#TipoYaBlake
+#Kim_t
+#Leon
+Сабина_Н
