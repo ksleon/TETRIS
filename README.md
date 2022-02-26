@@ -1,4 +1,4 @@
 # TETRIS
  Our tetris project
-#we_are_genius
+#Kirill_Vengerov
 
