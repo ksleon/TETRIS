@@ -3,6 +3,9 @@
 #ifndef _CLASS_
 #define _CLASS_
 
+//{
+
+
 //Class
 //==============================================================================================================================================================
 //{
@@ -12,8 +15,9 @@ private:
     Figure_type type; //Тип фигуры
     COLORREF color; //Цвет фигуры
     int direction; //Направление фигуры
-    bool move = 1;
+    Figure_state state = MOVE;
 public:
+    Figure(): x(0), y(0), type(SQUARE), color(TX_NULL), direction(0) {}
     Figure(double x0, double y0, Figure_type t, COLORREF c, int d): x(x0), y(y0), type(t), color(c), direction(d) {}
     Figure& operator= (const Figure &f);
 
@@ -33,24 +37,25 @@ public:
                                                            //В качестве аргумента принимает ссылку на двумерный
                                                            //Массив со статичными фигурами поля.
 
-    void m_down(); //Функция движения вниз
+    int m_down(); //Функция движения вниз
                                                           //В качестве аргумента принимает ссылку на двумерный
                                                           //Массив со статичными фигурами поля.
                                                           //Если не может двигаться то вписывает себя в этот
                                                           //Массив и останавливается
 
-    void set(bool m); //Установка значения переменной движения
+    void set(Figure_state m); //Установка значения переменной движения
 
     void set(Point p); //Установка координат
 
     void draw(double s); //Рисование
 
-    void push(); //Фигура вписывает себя в двумерный массив статичных
+    int push(); //Фигура вписывает себя в двумерный массив статичных
                                                         //Блоков, ссылка на который является аргументом
 
     bool check(); //Проверка корректности постановки фигуры
                                                         //На основе информации из массива статичных фигур,
                                                         //Ссылка на который является аргументом
+    Figure_state get();
 
 
 };
@@ -67,7 +72,7 @@ Figure& Figure::operator= (const Figure &f) {
     type = f.type;
     color = f.color;
     direction = f.direction;
-    move = f.move;
+    state = f.state;
     return *this;
 }
 
@@ -97,19 +102,21 @@ void Figure::m_right() {
         x = x + BLOCK_SIZE;
 }
 
-void Figure::m_down() {
-    Figure cpy(x, y + BLOCK_SIZE, type, color, direction);
-    if(cpy.check()) {
-        y = y + BLOCK_SIZE;
+int Figure::m_down() {
+    if (state == MOVE) {
+        Figure cpy(x, y + BLOCK_SIZE, type, color, direction);
+        if(cpy.check()) {
+            y = y + BLOCK_SIZE;
+        }
+        else {
+            return push();
+        }
     }
-    else {
-        move = 0;
-        push();
-    }
+    return 0;
 }
 
-void Figure::set(bool m) {
-    move = m;
+void Figure::set(Figure_state m) {
+    state = m;
 }
 
 void Figure::set(Point p) {
@@ -123,7 +130,8 @@ void Figure::draw(double s = 1) {
     }
 }
 
-void Figure::push() {
+int Figure::push() {
+    vector<vector<pair<bool, COLORREF>>> cpy = static_arr;
     for (auto k : dict[type][direction]) {
         double X = x + k.x * BLOCK_SIZE;
         double Y = y + k.y * BLOCK_SIZE;
@@ -131,9 +139,16 @@ void Figure::push() {
         Y -= Y_UP;
         int j = (int) (X) / BLOCK_SIZE;
         int i = (int) (Y) / BLOCK_SIZE;
+        if (i < 0) {
+            state = OUT_OF_AREA;
+            static_arr = cpy;
+            return 0;
+        }
         static_arr[i][j].first = 1;
         static_arr[i][j].second = color;
     }
+    state = STATIC;
+    return update();
 }
 
 bool Figure::check() {
@@ -145,12 +160,20 @@ bool Figure::check() {
         Y -= Y_UP;
         int j = (int) (X) / BLOCK_SIZE;
         int i = (int) (Y) / BLOCK_SIZE;
-        //cout << i << " " << j << "\n";
         if(static_arr[i][j].first)
             ans = 0;
     }
     return ans;
 }
+
+Figure_state Figure::get() {
+    return state;
+}
 //}
 //==============================================================================================================================================================
+//}
+//Этот код написал Плотников Владимир, электронной подписью является число - 589201
+//Открытый ключ: {1001117521, 7}
+//Зашифрованная подпись - 525272584
+
 #endif

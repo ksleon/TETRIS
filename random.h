@@ -6,7 +6,7 @@
 //==============================================================================================================================================================
 COLORREF rand_color();
 Figure_type rand_type();
-Figure rand_figure();
+Figure rand_figure(Figure_type t);
 //////////////////////////////////////
 
 COLORREF rand_color() {
@@ -20,12 +20,23 @@ Figure_type rand_type() {
     return figure_type_arr[num];
 }
 
-Figure rand_figure() {
+Figure rand_figure(Figure_type t = NOT_FIGURE) {
+    //{
+    Figure_type ft;
+    if (t == NOT_FIGURE)
+        ft = rand_type();
+    else
+        ft = t;
     COLORREF cl = rand_color();
-    Figure_type ft = rand_type();
     Point pos = start_pos[ft];
-    Figure ans(pos.x, pos.y, ft, cl, rand() % 4);
+    Figure ans(pos.x * BLOCK_SIZE + X_LEFT,
+               pos.y * BLOCK_SIZE + Y_UP,
+               ft, cl, 0);
     return ans;
+    //}
+    //Этот код написал Плотников Владимир, электронной подписью является число - 908437
+    //Открытый ключ: {190082983, 7}
+    //Зашифрованная подпись - 75993834
 }
 //==============================================================================================================================================================
 #endif

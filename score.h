@@ -2,7 +2,7 @@
 
 #ifndef _SCORE_
 #define _SCORE_
-
+//{
 class Score {
 private:
     int score;
@@ -26,11 +26,15 @@ void Score::update(int n) {
 
 void Score::draw(Point p) {
     txSelectFont ("Serifiqo 4F Free Capitals", 100);
-    txSetColor(TX_BLACK);
+    txSetColor(TX_WHITE);
     char chet[10];
     sprintf(chet,"%d",score);
     txTextOut(p.x, p.y, "Score");
     txTextOut(p.x, p.y + 10 + txGetTextExtentY(chet), chet);
 }
+//}
+//Этот код написал Венгеров Кирилл, электронной подписью является число - 1948
+//Открытый ключ: {61534471, 11}
+//Зашифрованная подпись - 41637548
 
 #endif
