@@ -19,7 +19,7 @@
 
 using namespace std;
 
-enum Figure_type {LINE,
+enum Figure_type {LINE,                         ///Все типы фигур
              L_SHAPED1,
              L_SHAPED2,
              SQUARE,
@@ -27,10 +27,10 @@ enum Figure_type {LINE,
              Z_SHAPED2,
              T_SHAPED,
              NOT_FIGURE};
-enum Figure_state {OUT_OF_AREA,
+enum Figure_state {OUT_OF_AREA,                 ///Статусы фигур
                    STATIC,
                    MOVE};
-enum Key_type {
+enum Key_type {                                 ///Все возможные клавиши
              KA,
              KB,
              KC,
@@ -68,8 +68,8 @@ enum Key_type {
              KCTRL,
              KSPACE,
              KNULL};
-
-struct Point {
+//{
+struct Point {                                  ///Точка
     double x;
     double y;
 };
@@ -78,8 +78,8 @@ map<Figure_type, map<int, vector<Point>>> dict; ///Словарь, который по типу фигу
                                                 ///Где координаты точки - это смещение в блоках до центра опрделенного
                                                 ///Квадрата фигуры
 map<Figure_type, Point> start_pos;              ///Словарь стартовых координат каждой фигуры
-map <Key_type, string> key_dict;
-map <string, Key_type> reverse_key_dict;
+map <Key_type, string> key_dict;                ///По клавише ее название
+map <string, Key_type> reverse_key_dict;        ///По названию клавиша
 vector<COLORREF> useful_colors;                 ///Массив всех цветов, пригодных для использования
 vector<vector<pair<bool, COLORREF>>> static_arr (AREA_Y_SIZE,
                                      vector<pair<bool, COLORREF>>
@@ -87,18 +87,18 @@ vector<vector<pair<bool, COLORREF>>> static_arr (AREA_Y_SIZE,
 vector<Figure_type> figure_type_arr;                                    ///Массив типов фигур
 
 
-Key_type rl = KQ;
-Key_type rr = KE;
-Key_type ml = KA;
-Key_type md = KS;
-Key_type mr = KD;
-Key_type h  = KR;
-void build ();                                                          ///Заполняет все что можно заполнить
-void sqr_draw(Point p, COLORREF cl, double s);                                    ///Рисует квадрат в заданной точке и заданного цвета (с черным краем)
-void static_draw();                                                     ///Рисует статичные блоки
-void settings_save();
-void settings_load();
-void settings_print();
+Key_type rl = KQ;     ///Клавиша поворота влево
+Key_type rr = KE;     ///Клавиша поворота вправо
+Key_type ml = KA;     ///Клавиша движения влево
+Key_type md = KS;     ///Клавиша движения вниз
+Key_type mr = KD;     ///Клавиша движения вправо
+Key_type h  = KR;     ///Клавиша придержки фигуры
+void build ();                                                      ///Заполняет все что можно заполнить
+void sqr_draw(Point p, COLORREF cl, double s);                      ///Рисует квадрат в заданной точке и заданного цвета (с черным краем)
+void static_draw();                                                 ///Рисует статичные блоки
+void settings_save();                                               ///Сохраняет текущие настройки в файл "save.txt"
+void settings_load();                                               ///Загрузка настроек из файла "save.txt"
+void settings_print();                                              ///Установка настроек по умолчанию
 void settings_default();
 
 void settings_save() {
@@ -150,6 +150,10 @@ void settings_default() {
     mr = KD;
     ml = KA;
 }
+//}
+//Этот код написал Плотников Владимир, электронной подписью является число - 739365
+//Открытый ключ: {440961607, 7}
+//Зашифрованная подпись - 397644601
 
 void build () {
     //dict

@@ -3,13 +3,13 @@
 #ifndef _RECORD_
 #define _RECORD_
 
-class Record {
+class Record { ///Класс, в котором хранится рекорд 1-го человека
 public:
-    string person_name;
-    int score;
+    string person_name; ///nickname
+    int score;          ///Счет
 
-    Record() : person_name("LOX"), score(0) {}
-    Record(string n, int s): person_name(n), score(s) {}
+    Record() : person_name("LOX"), score(0) {}          ///Нулевой конструктор
+    Record(string n, int s): person_name(n), score(s) {}///Нормальный конструктор
     bool operator< (const Record& r2) {
         return score < r2.score;
     }
@@ -50,14 +50,14 @@ public:
         return *this;
     }
 };
-vector<Record> records;
+vector<Record> records; ///Массив всех рекордов(максимум 9)
 
-bool cmp(Record A, Record B);
-void records_load();
-void records_save();
-void record_add(Record r);
-void records_draw();
-void open_records();
+bool cmp(Record A, Record B); ///Компаратор
+void records_load();          ///Загружает рекорды из файла "records.txt"
+void records_save();          ///Сохраняет 8 рекордов в файл "records.txt"
+void record_add(Record r);    ///Добавление нового рекорда
+void records_draw();          ///Отрисовка всех рекордов
+void open_records();          ///Открытие <<Вкладки>> рекордов
 
 bool cmp(Record A, Record B) {
     return A > B;
@@ -94,7 +94,7 @@ void records_draw() {
     txSelectFont ("Serifiqo 4F Free Capitals", 35, 10, 1000);
     txSetFillColor(RGB(150, 150, 150));
     txClear();
-    txSetColor(TX_WHITE);
+    txSetColor(TX_BLACK);
     txDrawText(0, 50, 1080, 110, "Records:");
     txSetTextAlign(TA_LEFT);
     for (int i = 0; i < min(8, (int) records.size()); i++) {

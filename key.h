@@ -4,37 +4,64 @@
 #define _KEYS_
 
 //{
-void draw(Key_type test, double x, double y, double x1, double y1);
-Key_type get();
-void key_build();
-char to_char(Key_type key);
+void draw(Key_type test, LONG x, LONG y, LONG x1, LONG y1);///Рисование символов
+Key_type get();                                            ///Считывание нажатой кнопки
+void key_build();                                          ///Заполнение словарей key_dict и reverse_key_dict
+char to_char(Key_type key);                                ///Конвертация нажатой кнопки в GetAsynKeyState
 
-void draw(Key_type test, double x, double y, double x1, double y1) {
+void draw(Key_type test, LONG x, LONG y, LONG x1, LONG y1) {
     txSetColor (TX_BLACK, 5);
-    //txSelectFont ("Serifiqo 4F Free Capitals", 1.7*BLOCK_SIZE);
     if(test == KUP){
-        //txRectangle (x, y, x + 72, y + 72);
-        txLine (x + 36, y + 10, x + 36, y + 62);
-        txLine (x + 36, y + 5,  x + 18, y + 36);
-        txLine (x + 36, y + 5,  x + 54, y + 36);
+         POINT strup    [8] = {{LONG(x + 40/1.4), LONG(y - 10/1.4 + 72)},
+                              {LONG(x + 45/1.4), LONG(y - 65/1.4 + 72)},
+                              {LONG(x + 30/1.4), LONG(y - 45/1.4 + 72)},
+                              {LONG(x + 50/1.4), LONG(y - 90/1.4 + 72)},
+                              {LONG(x + 70/1.4), LONG(y - 45/1.4 + 72)},
+                              {LONG(x + 55/1.4), LONG(y - 65/1.4 + 72)},
+                              {LONG(x + 60/1.4), LONG(y - 10/1.4 + 72)},
+                              {LONG(x + 40/1.4), LONG(y - 10/1.4 + 72)}};
+        txSetFillColor(TX_NULL);
+        txSetColor(TX_BLACK, 3);
+        txPolygon (strup, 8);
     }
     else if(test == KDOWN){
-        //txRectangle (x, y, x + 72, y + 72);
-        txLine (x + 36, y + 10, x + 36, y + 60);
-        txLine (x + 36, y + 66, x + 18, y + 36);
-        txLine (x + 36, y + 66, x + 54, y + 36);
+        POINT strdown  [8] = {{LONG(x - 40 / 1.4 + 72), LONG(y + 10 / 1.4)},
+                             {LONG(x - 45 / 1.4 + 72), LONG(y + 65 / 1.4)},
+                             {LONG(x - 30 / 1.4 + 72), LONG(y + 45 / 1.4)},
+                             {LONG(x - 50 / 1.4 + 72), LONG(y + 90 / 1.4)},
+                             {LONG(x - 70 / 1.4 + 72), LONG(y + 45 / 1.4)},
+                             {LONG(x - 55 / 1.4 + 72), LONG(y + 65 / 1.4)},
+                             {LONG(x - 60 / 1.4 + 72), LONG(y + 10 / 1.4)},
+                             {LONG(x - 40 / 1.4 + 72), LONG(y + 10 / 1.4)}};
+        txSetFillColor(TX_NULL);
+        txSetColor(TX_BLACK, 3);
+        txPolygon (strdown, 8);
     }
     else if(test == KLEFT){
-        //txRectangle (x, y, x + 72, y + 72);
-        txLine (x + 10, y + 36, x + 62, y + 36);
-        txLine (x + 5, y + 36, x + 41, y + 18);
-        txLine (x + 5, y + 36, x + 41, y + 54);
+        POINT strleft  [8] = {{LONG(x - 10 / 1.4 + 72), LONG(y - 40 / 1.4 + 72)},
+                          {LONG(x - 65 / 1.4 + 72), LONG(y - 45 / 1.4 + 72)},
+                          {LONG(x - 45 / 1.4 + 72), LONG(y - 30 / 1.4 + 72)},
+                          {LONG(x - 90 / 1.4 + 72), LONG(y - 50 / 1.4 + 72)},
+                          {LONG(x - 45 / 1.4 + 72), LONG(y - 70 / 1.4 + 72)},
+                          {LONG(x - 65 / 1.4 + 72), LONG(y - 55 / 1.4 + 72)},
+                          {LONG(x - 10 / 1.4 + 72), LONG(y - 60 / 1.4 + 72)},
+                          {LONG(x - 10 / 1.4 + 72), LONG(y - 40 / 1.4 + 72)}};
+        txSetFillColor(TX_NULL);
+        txSetColor(TX_BLACK, 3);
+        txPolygon (strleft, 8);
     }
     else if(test == KRIGHT){
-        //txRectangle (x, y, x + 72, y + 72);
-        txLine (x + 10, y + 36, x + 72, y + 36);
-        txLine (x + 67, y + 36, x + 36, y + 18);
-        txLine (x + 67, y + 36, x + 36, y + 54);
+        POINT strright [8] = {{LONG(x + 10 / 1.4), LONG(y + 40 / 1.4)},
+                          {LONG(x + 65 / 1.4), LONG(y + 45 / 1.4)},
+                          {LONG(x + 45 / 1.4), LONG(y + 30 / 1.4)},
+                          {LONG(x + 90 / 1.4), LONG(y + 50 / 1.4)},
+                          {LONG(x + 45 / 1.4), LONG(y + 70 / 1.4)},
+                          {LONG(x + 65 / 1.4), LONG(y + 55 / 1.4)},
+                          {LONG(x + 10 / 1.4), LONG(y + 60 / 1.4)},
+                          {LONG(x + 10 / 1.4), LONG(y + 40 / 1.4)}};
+        txSetFillColor(TX_NULL);
+        txSetColor(TX_BLACK, 3);
+        txPolygon (strright, 8);
     }
     else if(test == KRMB){
         txSetFillColor(TX_NULL);
@@ -53,12 +80,10 @@ void draw(Key_type test, double x, double y, double x1, double y1) {
         txPie (x + 12, y + 5, x + 60, y + 67, 90, 90);
     }
     else{
-        //txRectangle (x, y, x + 72, y + 72);
         double mx = (x1 + x) / 2;
         double lx = txGetTextExtentX(key_dict[test].c_str()) / 2;
         double my = (y1 + y) / 2;
         double ly = txGetTextExtentY(key_dict[test].c_str()) / 2;
-        //txDrawText (x, y, x1, y1, key_dict[test].c_str(), DT_WORDBREAK);
         txTextOut(mx - lx, my - ly, key_dict[test].c_str());
     }
 }
