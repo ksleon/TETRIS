@@ -3,13 +3,13 @@
 #ifndef _RECORD_
 #define _RECORD_
 
-class Record { ///Класс, в котором хранится рекорд 1-го человека
+class Record { ///РљР»Р°СЃСЃ, РІ РєРѕС‚РѕСЂРѕРј С…СЂР°РЅРёС‚СЃСЏ СЂРµРєРѕСЂРґ 1-РіРѕ С‡РµР»РѕРІРµРєР°
 public:
     string person_name; ///nickname
-    int score;          ///Счет
+    int score;          ///РЎС‡РµС‚
 
-    Record() : person_name("LOX"), score(0) {}          ///Нулевой конструктор
-    Record(string n, int s): person_name(n), score(s) {}///Нормальный конструктор
+    Record() : person_name("LOX"), score(0) {}          ///РќСѓР»РµРІРѕР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+    Record(string n, int s): person_name(n), score(s) {}///РќРѕСЂРјР°Р»СЊРЅС‹Р№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     bool operator< (const Record& r2) {
         return score < r2.score;
     }
@@ -50,14 +50,14 @@ public:
         return *this;
     }
 };
-vector<Record> records; ///Массив всех рекордов(максимум 9)
+vector<Record> records; ///РњР°СЃСЃРёРІ РІСЃРµС… СЂРµРєРѕСЂРґРѕРІ(РјР°РєСЃРёРјСѓРј 9)
 
-bool cmp(Record A, Record B); ///Компаратор
-void records_load();          ///Загружает рекорды из файла "records.txt"
-void records_save();          ///Сохраняет 8 рекордов в файл "records.txt"
-void record_add(Record r);    ///Добавление нового рекорда
-void records_draw();          ///Отрисовка всех рекордов
-void open_records();          ///Открытие <<Вкладки>> рекордов
+bool cmp(Record A, Record B); ///РљРѕРјРїР°СЂР°С‚РѕСЂ
+void records_load();          ///Р—Р°РіСЂСѓР¶Р°РµС‚ СЂРµРєРѕСЂРґС‹ РёР· С„Р°Р№Р»Р° "records.txt"
+void records_save();          ///РЎРѕС…СЂР°РЅСЏРµС‚ 8 СЂРµРєРѕСЂРґРѕРІ РІ С„Р°Р№Р» "records.txt"
+void record_add(Record r);    ///Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ СЂРµРєРѕСЂРґР°
+void records_draw();          ///РћС‚СЂРёСЃРѕРІРєР° РІСЃРµС… СЂРµРєРѕСЂРґРѕРІ
+void open_records();          ///РћС‚РєСЂС‹С‚РёРµ <<Р’РєР»Р°РґРєРё>> СЂРµРєРѕСЂРґРѕРІ
 
 bool cmp(Record A, Record B) {
     return A > B;

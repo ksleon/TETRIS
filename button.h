@@ -5,14 +5,14 @@
 
 class Button {
 private:
-    Point p1;         ///Координаты одного из углов кнопки
-    Point p2;         ///Координаты противоположного угла клетки
-    const char* str;  ///Текст на кнопке
-    COLORREF back_col;///Цвет фона кнопки
-    COLORREF text_col;///Цвет текста кнопки
+    Point p1;         ///РљРѕРѕСЂРґРёРЅР°С‚С‹ РѕРґРЅРѕРіРѕ РёР· СѓРіР»РѕРІ РєРЅРѕРїРєРё
+    Point p2;         ///РљРѕРѕСЂРґРёРЅР°С‚С‹ РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅРѕРіРѕ СѓРіР»Р° РєР»РµС‚РєРё
+    const char* str;  ///РўРµРєСЃС‚ РЅР° РєРЅРѕРїРєРµ
+    COLORREF back_col;///Р¦РІРµС‚ С„РѕРЅР° РєРЅРѕРїРєРё
+    COLORREF text_col;///Р¦РІРµС‚ С‚РµРєСЃС‚Р° РєРЅРѕРїРєРё
 public:
-    Button(): p1({0, 0}), p2({0, 0}), str(nullptr), back_col(TX_NULL), text_col(TX_NULL) {}           ///Нулевой конструктор
-    Button(Point _p1, const char* _str, COLORREF _back_col, COLORREF _text_col):p1(_p1),              ///Конструктор с неявной 2-й координатой (подбирается по длине строки)
+    Button(): p1({0, 0}), p2({0, 0}), str(nullptr), back_col(TX_NULL), text_col(TX_NULL) {}           ///РќСѓР»РµРІРѕР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+    Button(Point _p1, const char* _str, COLORREF _back_col, COLORREF _text_col):p1(_p1),              ///РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РЅРµСЏРІРЅРѕР№ 2-Р№ РєРѕРѕСЂРґРёРЅР°С‚РѕР№ (РїРѕРґР±РёСЂР°РµС‚СЃСЏ РїРѕ РґР»РёРЅРµ СЃС‚СЂРѕРєРё)
                                                                                 p2({0, 0}),
                                                                                 str(_str),
                                                                                 back_col(_back_col),
@@ -20,12 +20,12 @@ public:
         p2.x = (p1.x + 20 + txGetTextExtentX(str));
         p2.y = (p1.y + 20 + txGetTextExtentY(str));
     }
-    Button(Point _p1, Point _p2, const char* _str, COLORREF _back_col, COLORREF _text_col):p1(_p1),   ///Конструктор с явной 2-й координатой
+    Button(Point _p1, Point _p2, const char* _str, COLORREF _back_col, COLORREF _text_col):p1(_p1),   ///РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ СЏРІРЅРѕР№ 2-Р№ РєРѕРѕСЂРґРёРЅР°С‚РѕР№
                                                                                            p2(_p2),
                                                                                            str(_str),
                                                                                            back_col(_back_col),
                                                                                            text_col(_text_col) {}
-    bool get()  { ///Возвращает нажата кнопка или нет
+    bool get()  { ///Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РёР»Рё РЅРµС‚
         double mx = txMouseX();
         double my = txMouseY();
         return (GetAsyncKeyState(VK_LBUTTON) &&
@@ -33,7 +33,7 @@ public:
                (my <= max(p1.y, p2.y) && my >= min(p1.y, p2.y)) );
     }
 
-    void draw() { ///Рисует кнопку
+    void draw() { ///Р РёСЃСѓРµС‚ РєРЅРѕРїРєСѓ
         txSetColor(TX_BLACK, 2);
         txSetFillColor(back_col);
         txRectangle(p1.x, p1.y, p2.x, p2.y);
@@ -52,7 +52,7 @@ public:
     txCreateWindow(1080, 720);
     txClear();
     txSelectFont ("Serifiqo 4F Free Capitals", 100);
-    Button test({100, 100}, "Движение вниз", RGB(0, 255, 0), TX_BLACK);
+    Button test({100, 100}, "Р”РІРёР¶РµРЅРёРµ РІРЅРёР·", RGB(0, 255, 0), TX_BLACK);
     test.draw();
     while(!test.get());
     cout << getchar();

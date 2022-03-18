@@ -4,10 +4,10 @@
 #define _KEYS_
 
 //{
-void draw(Key_type test, LONG x, LONG y, LONG x1, LONG y1);///Рисование символов
-Key_type get();                                            ///Считывание нажатой кнопки
-void key_build();                                          ///Заполнение словарей key_dict и reverse_key_dict
-char to_char(Key_type key);                                ///Конвертация нажатой кнопки в GetAsynKeyState
+void draw(Key_type test, LONG x, LONG y, LONG x1, LONG y1);///Р РёСЃРѕРІР°РЅРёРµ СЃРёРјРІРѕР»РѕРІ
+Key_type get();                                            ///РЎС‡РёС‚С‹РІР°РЅРёРµ РЅР°Р¶Р°С‚РѕР№ РєРЅРѕРїРєРё
+void key_build();                                          ///Р—Р°РїРѕР»РЅРµРЅРёРµ СЃР»РѕРІР°СЂРµР№ key_dict Рё reverse_key_dict
+char to_char(Key_type key);                                ///РљРѕРЅРІРµСЂС‚Р°С†РёСЏ РЅР°Р¶Р°С‚РѕР№ РєРЅРѕРїРєРё РІ GetAsynKeyState
 
 void draw(Key_type test, LONG x, LONG y, LONG x1, LONG y1) {
     txSetColor (TX_BLACK, 5);
@@ -236,9 +236,9 @@ char to_char(Key_type key) {
     return ans;
 }
 //}
-//Этот код написал Венгеров Кирилл, электронной подписью является число - 1948
-//Открытый ключ: {61534471, 11}
-//Зашифрованная подпись - 41637548
+//Р­С‚РѕС‚ РєРѕРґ РЅР°РїРёСЃР°Р» Р’РµРЅРіРµСЂРѕРІ РљРёСЂРёР»Р», СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕРґРїРёСЃСЊСЋ СЏРІР»СЏРµС‚СЃСЏ С‡РёСЃР»Рѕ - 1948
+//РћС‚РєСЂС‹С‚С‹Р№ РєР»СЋС‡: {61534471, 11}
+//Р—Р°С€РёС„СЂРѕРІР°РЅРЅР°СЏ РїРѕРґРїРёСЃСЊ - 41637548
 /*int main() {
     txCreateWindow(1080, 720);
     Key_type test = KNULL;

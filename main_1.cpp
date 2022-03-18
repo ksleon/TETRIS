@@ -8,18 +8,18 @@
 #include "record.h"
 #include "tutorial.h"
 
-//Типы фигур:
-//Линия - LINE
-//Г-образная - L_SHAPED1
-//Отраженная Г-образная - L_SHAPED2
-//Квадрат - SQUARE
-//Z-образная - Z_SHAPED2
-//Отраженная Z-оразная - Z_SHAPED1
-//Т-образная T_SHAPED
+//РўРёРїС‹ С„РёРіСѓСЂ:
+//Р›РёРЅРёСЏ - LINE
+//Р“-РѕР±СЂР°Р·РЅР°СЏ - L_SHAPED1
+//РћС‚СЂР°Р¶РµРЅРЅР°СЏ Р“-РѕР±СЂР°Р·РЅР°СЏ - L_SHAPED2
+//РљРІР°РґСЂР°С‚ - SQUARE
+//Z-РѕР±СЂР°Р·РЅР°СЏ - Z_SHAPED2
+//РћС‚СЂР°Р¶РµРЅРЅР°СЏ Z-РѕСЂР°Р·РЅР°СЏ - Z_SHAPED1
+//Рў-РѕР±СЂР°Р·РЅР°СЏ T_SHAPED
 
-void play();                                     ///Запуск игры
-__attribute__((__noreturn__)) void tetris_exit();///Выход из игры (с сохранением всего)
-__attribute__((__noreturn__)) void menu();       ///Открытие основного меню
+void play();                                     ///Р—Р°РїСѓСЃРє РёРіСЂС‹
+__attribute__((__noreturn__)) void tetris_exit();///Р’С‹С…РѕРґ РёР· РёРіСЂС‹ (СЃ СЃРѕС…СЂР°РЅРµРЅРёРµРј РІСЃРµРіРѕ)
+__attribute__((__noreturn__)) void menu();       ///РћС‚РєСЂС‹С‚РёРµ РѕСЃРЅРѕРІРЅРѕРіРѕ РјРµРЅСЋ
 
 int main() {
     //{
@@ -30,9 +30,9 @@ int main() {
     txCreateWindow(1080, 720);
     menu();
     //}
-    //Этот код написал Плотников Владимир, электронной подписью является число - 456709
-    //Открытый ключ: {506477, 7}
-    //Зашифрованная подпись - 267686
+    //Р­С‚РѕС‚ РєРѕРґ РЅР°РїРёСЃР°Р» РџР»РѕС‚РЅРёРєРѕРІ Р’Р»Р°РґРёРјРёСЂ, СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕРґРїРёСЃСЊСЋ СЏРІР»СЏРµС‚СЃСЏ С‡РёСЃР»Рѕ - 456709
+    //РћС‚РєСЂС‹С‚С‹Р№ РєР»СЋС‡: {506477, 7}
+    //Р—Р°С€РёС„СЂРѕРІР°РЅРЅР°СЏ РїРѕРґРїРёСЃСЊ - 267686
 }
 
 __attribute__((__noreturn__)) void menu() {
@@ -56,12 +56,12 @@ __attribute__((__noreturn__)) void menu() {
             open_records();
         if (Settings.get())
             open_tutorial();
-
         txSetFillColor(RGB(150, 150, 150));
         txSetColor(TX_BLACK);
         txClear();
+        txSelectFont ("Serifiqo 4F Free Capitals", 150, 150 / 3, 1000);
+        txTextOut(390, 50, "TETRIS");
         txSelectFont ("Serifiqo 4F Free Capitals", 50, 50 / 3, 1000);
-        txTextOut(500, 100, "TETRIS");
         Play_game.draw();
         Records.draw();
         Settings.draw();
@@ -177,8 +177,8 @@ void play() {
             break;
         }
     }
-    if (MessageBox(NULL, "Желаете внести себя в список рекордов?","Рекорд?", MB_YESNO) == IDYES) {
-        const char* nik = txInputBox("Под каким именем Вы хотите это сделать?", "Рекорд!", "PRO_GAME_MASTER_2010");
+    if (MessageBox(NULL, "Р–РµР»Р°РµС‚Рµ РІРЅРµСЃС‚Рё СЃРµР±СЏ РІ СЃРїРёСЃРѕРє СЂРµРєРѕСЂРґРѕРІ?","Р РµРєРѕСЂРґ?", MB_YESNO) == IDYES) {
+        const char* nik = txInputBox("РџРѕРґ РєР°РєРёРј РёРјРµРЅРµРј Р’С‹ С…РѕС‚РёС‚Рµ СЌС‚Рѕ СЃРґРµР»Р°С‚СЊ?", "Р РµРєРѕСЂРґ!", "PRO_GAME_MASTER_2010");
         Record r(string(nik), score.get());
         record_add(r);
     }
