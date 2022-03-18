@@ -31,30 +31,30 @@ void draw_direct(){
     txDrawText (360 + 7 * BLOCK_SIZE, 2 * BLOCK_SIZE, 1080, 4 * BLOCK_SIZE, "replacing it at the right time.");
     //txSelectFont ("Serifiqo 4F Free Capitals", 1.7 * BLOCK_SIZE);
 
-    txLine(180 - 2 * BLOCK_SIZE, 600, 180 - 4 * BLOCK_SIZE, 600);//стрелочка
+    txLine(180 - 2 * BLOCK_SIZE, 600, 180 - 4 * BLOCK_SIZE, 600);//СЃС‚СЂРµР»РѕС‡РєР°
     txLine(180 - 4 * BLOCK_SIZE, 600, 180 - 3 * BLOCK_SIZE, 580);//
-    txLine(180 - 4 * BLOCK_SIZE, 600, 180 - 3 * BLOCK_SIZE, 620);//влево
+    txLine(180 - 4 * BLOCK_SIZE, 600, 180 - 3 * BLOCK_SIZE, 620);//РІР»РµРІРѕ
 
-    txLine(900 + 2 * BLOCK_SIZE, 600, 900 + 4 * BLOCK_SIZE, 600);//стрелочка
+    txLine(900 + 2 * BLOCK_SIZE, 600, 900 + 4 * BLOCK_SIZE, 600);//СЃС‚СЂРµР»РѕС‡РєР°
     txLine(900 + 4 * BLOCK_SIZE, 600, 900 + 3 * BLOCK_SIZE, 580);//
-    txLine(900 + 4 * BLOCK_SIZE, 600, 900 + 3 * BLOCK_SIZE, 620);//вправо
+    txLine(900 + 4 * BLOCK_SIZE, 600, 900 + 3 * BLOCK_SIZE, 620);//РІРїСЂР°РІРѕ
 
-    txLine(540, 600 + BLOCK_SIZE, 540, 600 + 3 * BLOCK_SIZE);//стрелочка
+    txLine(540, 600 + BLOCK_SIZE, 540, 600 + 3 * BLOCK_SIZE);//СЃС‚СЂРµР»РѕС‡РєР°
     txLine(540, 600 + 3 * BLOCK_SIZE, 520, 600 + 2 * BLOCK_SIZE);//
-    txLine(540, 600 + 3 * BLOCK_SIZE, 560, 600 + 2 * BLOCK_SIZE);//вниз
+    txLine(540, 600 + 3 * BLOCK_SIZE, 560, 600 + 2 * BLOCK_SIZE);//РІРЅРёР·
 
-    txLine(360 + 2 * BLOCK_SIZE, 100, 360 + 4 * BLOCK_SIZE, 100);//стрелочка
-    txLine(360 + 4 * BLOCK_SIZE, 100, 360 + 3 * BLOCK_SIZE, 80);//в
+    txLine(360 + 2 * BLOCK_SIZE, 100, 360 + 4 * BLOCK_SIZE, 100);//СЃС‚СЂРµР»РѕС‡РєР°
+    txLine(360 + 4 * BLOCK_SIZE, 100, 360 + 3 * BLOCK_SIZE, 80);//РІ
     txLine(360 + 4 * BLOCK_SIZE, 100, 360 + 3 * BLOCK_SIZE, 120);//hold
 
-    txLine(360 - BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 360 - 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE);//стрелочка
-    txLine(360 - 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 360 - 2 * BLOCK_SIZE, 600 - BLOCK_SIZE);//поворот
-    txLine(360 - 2 * BLOCK_SIZE, 600 - BLOCK_SIZE, 350 - 2 * BLOCK_SIZE, 600 - 1.5 * BLOCK_SIZE);//влево
+    txLine(360 - BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 360 - 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE);//СЃС‚СЂРµР»РѕС‡РєР°
+    txLine(360 - 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 360 - 2 * BLOCK_SIZE, 600 - BLOCK_SIZE);//РїРѕРІРѕСЂРѕС‚
+    txLine(360 - 2 * BLOCK_SIZE, 600 - BLOCK_SIZE, 350 - 2 * BLOCK_SIZE, 600 - 1.5 * BLOCK_SIZE);//РІР»РµРІРѕ
     txLine(360 - 2 * BLOCK_SIZE, 600 - BLOCK_SIZE, 370 - 2 * BLOCK_SIZE, 600 - 1.5 * BLOCK_SIZE);//
 
-    txLine(720 + BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 720 + 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE);//стрелочка
-    txLine(720 + 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 720 + 2 * BLOCK_SIZE, 600 - BLOCK_SIZE);//поворот
-    txLine(720 + 2 * BLOCK_SIZE, 600 - BLOCK_SIZE, 710 + 2 * BLOCK_SIZE, 600 - 1.5 * BLOCK_SIZE);//вправо
+    txLine(720 + BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 720 + 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE);//СЃС‚СЂРµР»РѕС‡РєР°
+    txLine(720 + 2 * BLOCK_SIZE, 600 - 2 * BLOCK_SIZE, 720 + 2 * BLOCK_SIZE, 600 - BLOCK_SIZE);//РїРѕРІРѕСЂРѕС‚
+    txLine(720 + 2 * BLOCK_SIZE, 600 - BLOCK_SIZE, 710 + 2 * BLOCK_SIZE, 600 - 1.5 * BLOCK_SIZE);//РІРїСЂР°РІРѕ
     txLine(720 + 2 * BLOCK_SIZE, 600 - BLOCK_SIZE, 730 + 2 * BLOCK_SIZE, 600 - 1.5 * BLOCK_SIZE);//
 }
 
@@ -188,7 +188,7 @@ void open_tutorial(){
     txEnd();
 }
 //}
-//Этот код написал Венгеров Кирилл, электронной подписью является число - 1948
-//Открытый ключ: {61534471, 11}
-//Зашифрованная подпись - 41637548
+//Р­С‚РѕС‚ РєРѕРґ РЅР°РїРёСЃР°Р» Р’РµРЅРіРµСЂРѕРІ РљРёСЂРёР»Р», СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕРґРїРёСЃСЊСЋ СЏРІР»СЏРµС‚СЃСЏ С‡РёСЃР»Рѕ - 1948
+//РћС‚РєСЂС‹С‚С‹Р№ РєР»СЋС‡: {61534471, 11}
+//Р—Р°С€РёС„СЂРѕРІР°РЅРЅР°СЏ РїРѕРґРїРёСЃСЊ - 41637548
 #endif
