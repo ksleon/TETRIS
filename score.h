@@ -11,7 +11,12 @@ public:
     Score(): score(0) {}
     void update(int n);
     void draw(Point p1);
+    int get();
 };
+
+int Score::get() {
+    return score;
+}
 
 void Score::update(int n) {
     if( n == 1 )

@@ -89,8 +89,8 @@ void play() {
     main_figure = rand_figure();
     next = rand_figure();
     next.set({900, 180});
-    double xh = 900, yh = 396;
-    int t = 0;
+    //double xh = 900, yh = 396;
+    //int t = 0;
     while (!GetAsyncKeyState(VK_ESCAPE)) {
         while(true) {
             for(int i = 0; i < 3 && !GetAsyncKeyState(VK_ESCAPE); i++) {

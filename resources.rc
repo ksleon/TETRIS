@@ -1,0 +1,3 @@
+#include "resource.h"
+
+IDI_ICON   ICON   "C:\Users\Анести\Desktop\Study\ИНФОРМАТИКА\Проект ТЕТРИС 2022\TETRIS0.3\iconka\tetris_logo0.1.ico"
